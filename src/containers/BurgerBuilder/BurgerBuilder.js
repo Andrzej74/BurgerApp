@@ -29,15 +29,15 @@ class BurgerBuilder extends Component{
         loading: false,
     }
 
-    // componentDidMount () {
-    //     axios.get( 'https://burger-app-e746b.firebaseio.com/ingredients.json' )
-    //         .then( response => {
-    //             this.setState( { ingredients: response.data } );
-    //         } )
-    //         .catch( error => {
-    //             this.setState( { error: true } );
-    //         } );
-    // }
+    componentDidMount () {
+        axios.get( 'https://burger-app-e746b.firebaseio.com/ingredients.json' )
+            .then( response => {
+                this.setState( { ingredients: response.data } );
+            } )
+            .catch( error => {
+                this.setState( { error: true } );
+            } );
+    }
 
     updatePurchaseState = (ingredients) => {
         const sum = Object.keys(ingredients)
@@ -143,10 +143,11 @@ class BurgerBuilder extends Component{
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler} />;
         }
+        
         if ( this.state.loading ) {
             orderSummary = <Spinner />;
         }
-        // {salad: true, meat: false, ...}
+
         return (
             <Auxillary>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
