@@ -38,7 +38,7 @@ class BurgerBuilder extends Component{
                 this.setState( { error: true } );
             } );
     }
-
+    
     updatePurchaseState = (ingredients) => {
         const sum = Object.keys(ingredients)
         .map(igKey => {
@@ -143,7 +143,7 @@ class BurgerBuilder extends Component{
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler} />;
         }
-        
+
         if ( this.state.loading ) {
             orderSummary = <Spinner />;
         }
